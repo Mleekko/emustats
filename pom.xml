@@ -5,22 +5,25 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mleekko</groupId>
-    <artifactId>webapp-template</artifactId>
+    <artifactId>emu-stats</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
     
-    <name>webapp-template</name>
-    <description>webapp-template</description>
+    <name>emu-stats</name>
+    <description>emu-stats</description>
     
     <properties>
-        <jetty.port>8088</jetty.port>
-        <dev.env>dev</dev.env>
-
         <!-- Set project encoding to UTF-8 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+
         <!-- Set to 'true' to launch surefire tests with debug socket (dt_socket). -->
         <test.debug />
+
+        <jetty.port>8080</jetty.port>
+        <dev.env>local</dev.env>
 
         <root.loglevel>INFO</root.loglevel>
         <project.loglevel>DEBUG</project.loglevel>
@@ -30,6 +33,7 @@
         <!-- Versioning -->
         <spring.version>4.0.0.RELEASE</spring.version>
         <jersey.version>2.5</jersey.version>
+        <jackson.version>1.9.5</jackson.version>
     </properties>
 
     <build>
@@ -197,6 +201,30 @@
             <version>2.1</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.28</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -233,9 +261,9 @@
     </dependencies>
     
     <scm>
-        <url>https://github.com/Mleekko/webapp-template</url>
-        <connection>scm:git:ssh://git@github.com:Mleekko/webapp-template.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:Mleekko/webapp-template.git</developerConnection>
+        <url>https://github.com/Mleekko/emustats</url>
+        <connection>scm:git:ssh://git@github.com:Mleekko/emustats.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:Mleekko/emustats.git</developerConnection>
     </scm>
 
 </project>

@@ -17,3 +17,5 @@
 # Build output
 /target/
 /logs/
+
+/local.properties

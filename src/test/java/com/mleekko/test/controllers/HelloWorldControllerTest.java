@@ -20,4 +20,15 @@ public class HelloWorldControllerTest {
         assertEquals("8", model.get("pageNum"));
     }
 
+    @Test
+    public void testSomething1() {
+        ModelMap model = new ModelMap();
+        HelloWorldController controller = new HelloWorldController();
+
+        String view = controller.doHello(model, "8");
+
+        assertEquals("/hello", view);
+        assertEquals("8", model.get("pageNum"));
+    }
+
 }

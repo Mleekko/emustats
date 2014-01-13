@@ -5,8 +5,33 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <context:component-scan base-package="com.mleekko.test" />
+    <context:component-scan base-package="com.mleekko.test,com.mleekko.json" >
+        <context:exclude-filter type="annotation"  expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
     <import resource="classpath:com/mleekko/test/propertyConfigurer.xml"/>
+
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://${stats.mysql.host}:${stats.mysql.port}/peer"/>
+        <property name="username" value="${stats.mysql.user}"/>
+        <property name="password" value="${stats.mysql.pass}"/>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!--
+         <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    -->
+
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.mleekko.test.dao.PeerMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
 
 </beans>

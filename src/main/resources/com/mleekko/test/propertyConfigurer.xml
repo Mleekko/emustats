@@ -11,6 +11,7 @@
             <list>
                 <value>classpath:com/mleekko/test/env/app-default.properties</value>
                 <value>classpath:com/mleekko/test/env/app-${dev.env}.properties</value>
+                <value>file:local.properties</value>
             </list>
         </property>
     </bean>

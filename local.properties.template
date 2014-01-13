@@ -1,0 +1,7 @@
+# Copy and rename to "local.properties"
+# Put any system properties specific to current machine here.
+# This file is also used to override any other system property in development environment.
+
+# MySQL credentials
+stats.mysql.user=emunie
+stats.mysql.pass=emunie
