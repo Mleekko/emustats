@@ -4,3 +4,16 @@
 *.jar
 *.war
 *.ear
+
+# Eclipse files #
+/.classpath
+/.project
+/.settings/
+
+#Idea files
+/.idea/
+/*.iml
+
+# Build output
+/target/
+/logs/
